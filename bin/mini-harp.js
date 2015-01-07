@@ -6,6 +6,15 @@ var createMiniHarp = require("mini-harp")
 var argv = parseArgs(process.argv.slice(2));
 var port = argv.port || "4000";
 
+app.use(function (req, res, next) {
+	if (req.url == "/current-time") {
+		res.end((new Date()).toISOString());
+	}
+	else {
+		next();
+	}
+});
+
 console.log("Starting mini-harp on http://localhost:" + port);
 app.listen(parseInt(port));
 

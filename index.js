@@ -1,8 +1,7 @@
 var connect = require('connect');
+var serveStatic = require('serve-static');
 
-module.exports = createServer;
-
-function createServer() {
+function createMiniHarp(root) {
 	var app = connect();
 
 	app.use(function (req, res, next) {
@@ -14,5 +13,9 @@ function createServer() {
 		}
 	});
 
+	app.use(serveStatic(root));
+
 	return app;
 }
+
+module.exports = createMiniHarp;

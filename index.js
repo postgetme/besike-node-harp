@@ -12,7 +12,7 @@ function createMiniHarp(root) {
       next();
     }
   });
-
+  
   app.use(serveStatic(root));
 
   return app;

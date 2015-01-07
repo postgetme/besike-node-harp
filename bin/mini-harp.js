@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-
 var createMiniHarp = require('..');
 var parseArgs = require('minimist');
 

@@ -1,5 +1,6 @@
 var connect = require('connect');
 var serveStatic = require('serve-static');
+var makeJade = require('./lib/processor/jade')
 
 function createMiniHarp(root) {
   var app = connect();
@@ -12,8 +13,9 @@ function createMiniHarp(root) {
       next();
     }
   });
-  
+
   app.use(serveStatic(root));
+	app.use(makeJade(root));
 
   return app;
 }

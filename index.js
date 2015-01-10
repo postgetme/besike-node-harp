@@ -16,12 +16,12 @@ function createMiniHarp(root) {
       next();
     }
   });
-
-	app.use(serveIndex(root));
-	app.use(rejectStupid(root));
+  
+  app.use(serveIndex(root));
+  app.use(rejectStupid(root));
   app.use(serveStatic(root));
-	app.use(makeJade(root));
-	app.use(makeLess(root));
+  app.use(makeJade(root));
+  app.use(makeLess(root));
 
   return app;
 }

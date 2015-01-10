@@ -1,4 +1,5 @@
 var connect = require('connect');
+var serveIndex = require('./lib/processor/index');
 var serveStatic = require('serve-static');
 var makeJade = require('./lib/processor/jade')
 var makeLess = require('./lib/processor/less')
@@ -15,6 +16,7 @@ function createMiniHarp(root) {
     }
   });
 
+	app.use(serveIndex(root));
   app.use(serveStatic(root));
 	app.use(makeJade(root));
 	app.use(makeLess(root));
